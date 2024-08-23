@@ -1,0 +1,12 @@
+/* Global CSS */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevents scrolling */
+    background-color: aliceblue;
+}
+
+#root {
+    height: 100%;
+}
