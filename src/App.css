@@ -1,0 +1,25 @@
+/* App.css */
+.app-container {
+    display: flex;
+  }
+  
+  .vertical-navbar {
+    width: 250px; /* Adjust based on the actual width of your navbar */
+    position: fixed; /* Keep it fixed to the left */
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #343a40; /* Adjust based on your theme */
+    overflow: hidden;
+  }
+  
+  .page-content {
+    margin-left: 250px; /* Same as the width of the navbar */
+    padding: 20px; /* Optional: Adds some spacing around your content */
+    width: calc(100% - 250px); /* Full width minus the width of the navbar */
+  }
+  
+  .page-content h1 {
+    color: #343a40; /* Adjust text color based on the theme */
+  }
+  

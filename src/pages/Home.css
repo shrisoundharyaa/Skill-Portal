@@ -1,0 +1,15 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f8fafc; /* A light background color */
+    overflow: hidden; 
+  }
+  
+  .welcome-text {
+    color: #1e293b; /* Tailwind's slate-800 equivalent */
+    font-size: 2rem; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+  }
+  
