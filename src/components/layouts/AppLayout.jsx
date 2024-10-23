@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import VerticalNavbar from '../vertical/VerticalNavbar';
 import HorizontalNavbar from '../horizontal/HorizontalNavbar';
@@ -5,6 +6,7 @@ import '../../index.css';
 import '../../App.css';
 
 
+// eslint-disable-next-line react/prop-types
 function AppLayout({ children }) {
   return (
     <div className="app-container">
