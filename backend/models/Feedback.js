@@ -1,10 +1,11 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const feedbackSchema = new mongoose.Schema({
-  studentId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  courseId: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' },
+const feedbackSchema = new Schema({
+  studentId: { type: Schema.Types.ObjectId, ref: 'User' },
+  courseId: { type: Schema.Types.ObjectId, ref: 'Course' },
   feedbackText: { type: String, required: true },
   createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Feedback', feedbackSchema);
+// eslint-disable-next-line no-undef
+export default model('Feedback', feedbackSchema);

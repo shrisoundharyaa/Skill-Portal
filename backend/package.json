@@ -16,5 +16,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.2",
     "nodemailer": "^6.9.15"
+  },
+  "devDependencies": {
+    "eslint": "^9.13.0"
   }
 }
