@@ -7,5 +7,5 @@ const feedbackSchema = new Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-// eslint-disable-next-line no-undef
+ 
 export default model('Feedback', feedbackSchema);

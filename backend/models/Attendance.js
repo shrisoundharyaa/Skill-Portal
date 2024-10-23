@@ -7,5 +7,5 @@ const attendanceSchema = new Schema({
   present: { type: Boolean, required: true },
 });
 
-// eslint-disable-next-line no-undef
+ 
 export default model('Attendance', attendanceSchema);
