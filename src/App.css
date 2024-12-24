@@ -6,7 +6,7 @@
   .vertical-navbar {
     width: 250px; /* Adjust based on the actual width of your navbar */
     position: fixed; /* Keep it fixed to the left */
-    top: 0;
+    top: 10;
     left: 0;
     height: 100%;
     background-color: #343a40; /* Adjust based on your theme */
