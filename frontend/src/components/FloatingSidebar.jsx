@@ -29,23 +29,23 @@ const FloatingSidebar = () => {
         <ul>
           <li onClick={() => navigate('/')}>
             <HomeIcon className="icon" />
-            <span>{isHovered || isOpen ? 'Home' : ''}</span>
+            <span>{isHovered || isOpen ? 'Dashbord' : ''}</span>
           </li>
           <li onClick={() => navigate('/real')}>
             <MapIcon className="icon" />
-            <span>{isHovered || isOpen ? 'Map' : ''}</span>
+            <span>{isHovered || isOpen ? 'Courses' : ''}</span>
           </li>
           <li onClick={() => navigate('/buses')}>
             <DirectionsBusIcon className="icon" />
-            <span>{isHovered || isOpen ? 'Buses' : ''}</span>
+            <span>{isHovered || isOpen ? 'Progress' : ''}</span>
           </li>
           <li onClick={() => navigate('/routes')}>
             <RouteIcon className="icon" />
-            <span>{isHovered || isOpen ? 'Routes' : ''}</span>
+            <span>{isHovered || isOpen ? 'Faculty' : ''}</span>
           </li>
           <li onClick={() => navigate('/depot')}>
             <WarehouseIcon className="icon" />
-            <span>{isHovered || isOpen ? 'Depot' : ''}</span>
+            <span>{isHovered || isOpen ? 'Admin' : ''}</span>
           </li>
         </ul>
       </div>
