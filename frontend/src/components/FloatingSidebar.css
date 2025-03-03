@@ -3,7 +3,7 @@
     position: fixed;
     top: 60px;
     left: 0px;
-    width: 50px;
+    width: 60px;
     height: 100%;
     background-color: #ecedf1;
     color: #18181b;
@@ -14,7 +14,7 @@
   }
   
   .sidebar.open {
-    width: 140px;
+    width: 200px;
   }
   
   .sidebar ul {

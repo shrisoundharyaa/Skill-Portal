@@ -1,10 +1,14 @@
-
+import { useNavigate } from "react-router-dom";
 import "./TopBar.css"; // Import the separate CSS file
 import LogoutIcon from "@mui/icons-material/Logout"; // MUI icon import
 import Lerlogo from "../assets/lerlogo.png"; // Import image
 const TopBar = () => {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    alert("Logout action triggered!"); // Replace with your actual logout functionality
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    navigate("/login");
   };
 
   return (
@@ -21,7 +25,7 @@ const TopBar = () => {
       <div className="logout-container">
         <LogoutIcon
           className="logout-icon"
-          titleAccess="Logout"
+          // titleAccess="Logout"
           onClick={handleLogout}
         />
         

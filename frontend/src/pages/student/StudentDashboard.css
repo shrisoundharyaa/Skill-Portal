@@ -1,0 +1,102 @@
+/* Student Dashboard Styles */
+.student-dashboard {
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f5f7;
+    color: #333;
+    min-height: 100vh;
+    padding-left: 260px; /* Space for Sidebar */
+    padding-top: 70px; /* Space for TopBar */
+  }
+  
+  /* Dashboard Layout */
+  .dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    /* max-width: 1200px; */
+    margin: auto;
+    padding: 20px;
+  }
+  
+  /* Profile Section */
+  .student-info {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .student-info:hover {
+    transform: translateY(-5px);
+  }
+  
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    margin-bottom: 10px;
+    border: 3px solid #007bff;
+  }
+  
+  /* Courses Section */
+  .courses-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .course-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .course-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .course-card h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .course-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .course-card li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .course-card li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .student-dashboard {
+      padding-left: 0;
+    }
+  
+    .dashboard-container {
+      grid-template-columns: 1fr;
+      align-items: center;
+    }
+  }
+  
