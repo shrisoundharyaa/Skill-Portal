@@ -1,0 +1,144 @@
+/* General container styling */
+.course-details-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: "Arial", sans-serif;
+}
+
+/* Course title styling */
+.course-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Course description styling */
+.course-description {
+    font-size: 16px;
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+/* Section styling (Faculty, Students, Materials) */
+.faculty-section,
+.student-section,
+.materials-section {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid #007bff;
+}
+
+h3 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Faculty details */
+.faculty-section p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.5;
+}
+
+/* Assign Faculty Button */
+.assign-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.assign-button:hover {
+    background-color: #218838;
+}
+
+.assign-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Student details */
+.student-section p {
+    font-size: 16px;
+    color: #444;
+}
+
+/* Course materials */
+.materials-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.materials-section li {
+    background: #d4edda;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #333;
+}
+
+/* Error message */
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.retry-button {
+    display: block;
+    margin: 10px auto;
+    padding: 8px 12px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.retry-button:hover {
+    background: #c82333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .course-details-container {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .course-title {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .assign-button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

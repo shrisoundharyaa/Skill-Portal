@@ -1,5 +1,5 @@
 const express = require("express");
-const {getStudents, getFaculty , assignFaculty, addCourse,getCourses } = require("../controllers/adminControllers");
+const {getStudents, getFaculty , assignFaculty, addCourse,getCourses ,getCourseMaterials,getCourseDetails } = require("../controllers/adminControllers");
 const router = express.Router();
 
 // Get all students
@@ -15,5 +15,7 @@ router.post("/request-faculty", assignFaculty);
 router.post("/add-course", addCourse);
 //get courses
 router.get("/courses", getCourses);
+//get course with id
+router.get("/courses/:id", getCourseDetails);
 
 module.exports = router;

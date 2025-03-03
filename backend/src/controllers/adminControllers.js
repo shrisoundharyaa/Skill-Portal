@@ -25,30 +25,28 @@ exports.getFaculty = async (req, res) => {
 
 
 const mongoose = require("mongoose");
-
 exports.assignFaculty = async (req, res) => {
     try {
         const { facultyId, courseId } = req.body;
 
-        // Validate facultyId
         if (!mongoose.Types.ObjectId.isValid(facultyId)) {
             return res.status(400).json({ error: "Invalid facultyId format" });
         }
 
-        // Find faculty by ObjectId
         const faculty = await User.findById(facultyId);
         if (!faculty) {
             return res.status(404).json({ error: "Faculty not found" });
         }
 
-        // Find course by courseId (not _id)
-        const course = await Course.findOne({ courseId: courseId });
+        const course = await Course.findOne({ courseId });
         if (!course) {
             return res.status(404).json({ error: "Course not found" });
         }
 
-        // Assign faculty to the course
+        // Assign faculty and store ID, name, and roll number
         course.assignedFaculty = facultyId;
+        course.assignedFacultyName = faculty.username;
+        course.assignedFacultyRollNumber = faculty.rollNumber;
         await course.save();
 
         res.json({ message: "Faculty assigned successfully", course });
@@ -91,6 +89,49 @@ exports.getCourses = async (req, res) => {
     try {
         const courses = await Course.find(); //.populate("assignedFaculty").populate("studentsRegistered")
         res.json(courses);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+
+exports.getCourseDetails = async (req, res) => {
+    try {
+        const course = await Course.findOne({ courseId: req.params.id })
+            .populate("studentsRegistered", "username rollNumber")
+            .populate("assignedFaculty", "username email rollNumber");
+
+        if (!course) {
+            return res.status(404).json({ message: "Course not found" });
+        }
+
+        res.json({
+            courseId: course.courseId,
+            name: course.name,
+            description: course.description,
+            assignedFacultyId: course.assignedFaculty?._id || null, //  Faculty ID
+            assignedFacultyName: course.assignedFaculty?.username || "Not Assigned", // Faculty Name
+            assignedFacultyRollNumber: course.assignedFaculty?.rollNumber || "Not Assigned", // Faculty Roll Number
+            studentsRegistered: course.studentsRegistered,
+            facultyStatus: course.facultyStatus,
+            materials: course.materials || "Not added",
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+
+// Fetch Course Materials (Check if they exist)
+exports.getCourseMaterials = async (req, res) => {
+    try {
+        const course = await Course.findOne({ courseId: req.params.id });
+
+        if (!course) {
+            return res.status(404).json({ message: "Course not found" });
+        }
+
+        res.json({ materials: course.materials || "Not added" });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

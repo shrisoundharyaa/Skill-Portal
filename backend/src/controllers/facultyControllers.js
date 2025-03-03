@@ -1,32 +1,49 @@
-const Course = require("../models/adminModel");
-const User = require("../models/userModel");
-
-const mongoose = require("mongoose");
 exports.respondToCourse = async (req, res) => {
     try {
-        let { courseId, facultyId, response } = req.body;
+        let { courseId, facultyId, response, actionBy } = req.body; // actionBy can be 'admin' or 'faculty'
 
-        // 🔹 Find course using courseId (string)
+        // 🔹 Find course using courseId
         const course = await Course.findOne({ courseId: courseId });
         if (!course) {
             return res.status(404).json({ error: "Course not found" });
         }
 
-        // 🔹 Check if faculty is assigned to this course
-        if (course.assignedFaculty && course.assignedFaculty.toString() !== facultyId) {
-            return res.status(403).json({ error: "Unauthorized! You are not assigned to this course." });
+        // 🔹 Validate faculty existence and role
+        const faculty = await User.findById(facultyId);
+        if (!faculty || faculty.role !== "faculty") {
+            return res.status(403).json({ error: "Unauthorized! Only faculty can be assigned." });
         }
 
-        // 🔹 Validate response
-        if (!["Accepted", "Rejected"].includes(response)) {
-            return res.status(400).json({ error: "Invalid response. Use 'Accepted' or 'Rejected'." });
+        // 🔹 If admin is sending a request to faculty
+        if (actionBy === "admin") {
+            if (course.assignedFaculty) {
+                return res.status(400).json({ error: "Faculty already assigned to this course." });
+            }
+            course.assignedFaculty = facultyId;
+            course.facultyStatus = "Pending"; // Mark as pending
+            await course.save();
+            return res.json({ message: "Request sent to faculty. Waiting for faculty response." });
         }
 
-        // 🔹 Update status
-        course.facultyStatus = response;
-        await course.save();
+        // 🔹 If faculty is responding to the request
+        if (actionBy === "faculty") {
+            if (!course.assignedFaculty || course.assignedFaculty.toString() !== facultyId) {
+                return res.status(403).json({ error: "Unauthorized! You were not requested for this course." });
+            }
 
-        res.json({ message: `Faculty ${response} the course successfully.` });
+            // 🔹 Validate faculty response
+            if (!["Accepted", "Rejected"].includes(response)) {
+                return res.status(400).json({ error: "Invalid response. Use 'Accepted' or 'Rejected'." });
+            }
+
+            // 🔹 Update faculty status
+            course.facultyStatus = response;
+            await course.save();
+
+            return res.json({ message: `Faculty ${response} the course successfully.` });
+        }
+
+        res.status(400).json({ error: "Invalid action." });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

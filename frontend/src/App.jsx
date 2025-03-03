@@ -7,6 +7,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import FacultyDashboard from "./pages/faculty/FacultyDashboard";
 import StudentDashboard from "./pages/student/StudentDashboard";
 import AddCourse from "./pages/admin/AddCourse";
+import CourseDetails from "./pages/admin/CourseDetails"; 
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
       {/* admin */}
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/add-course" element={<AddCourse />} />
+        <Route path="/admin/courses/:courseId" element={<CourseDetails />} />
+
       
 
 
