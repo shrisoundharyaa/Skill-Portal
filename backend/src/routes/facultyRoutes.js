@@ -5,4 +5,5 @@ const router = express.Router();
 // Faculty Accept/Reject Course
 router.post("/respond-course", respondToCourse);
 
+
 module.exports = router;

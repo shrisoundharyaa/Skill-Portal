@@ -29,7 +29,7 @@ function AdminDashboard() {
             <div
               key={course._id}
               className="course-card"
-              onClick={() => navigate(`/admin/courses/${course.courseId}`)} // ✅ Navigate to CourseDetails
+              onClick={() => navigate(`/admin/courses/${course.courseId}`)} //  Navigate to CourseDetails
               style={{ cursor: "pointer" }} // Make it look clickable
             >
               <img
