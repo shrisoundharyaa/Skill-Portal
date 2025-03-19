@@ -5,6 +5,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/login/Register";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import FacultyDashboard from "./pages/faculty/FacultyDashboard";
+import FacultyCourseRequest from "./pages/faculty/FacultyCourseRequests";
 import StudentDashboard from "./pages/student/StudentDashboard";
 import AddCourse from "./pages/admin/AddCourse";
 import CourseDetails from "./pages/admin/CourseDetails"; 
@@ -28,6 +29,11 @@ function App() {
 
 
         <Route path="/faculty" element={<FacultyDashboard />} />
+        <Route path="/faculty-response-courses" element={<FacultyCourseRequest />} />
+        
+
+
+
         <Route path="/student" element={<StudentDashboard />} />
       </Routes>
     </>

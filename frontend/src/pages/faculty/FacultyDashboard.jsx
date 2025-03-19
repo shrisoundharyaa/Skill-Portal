@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import TopBar from "../../components/TopBar";
-import FloatingSidebar from "../../components/FloatingSidebar";
+import FloatingSidebar from "../../components/FacultyFloatingbar";
 function FacultyDashboard() {
   const navigate = useNavigate();
 

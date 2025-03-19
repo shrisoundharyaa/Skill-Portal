@@ -2,9 +2,9 @@ import { useState } from 'react';
 import './FloatingSidebar.css';
 import HomeIcon from '@mui/icons-material/Home';
 import MapIcon from '@mui/icons-material/Map';
-import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
-import RouteIcon from '@mui/icons-material/Route';
-import WarehouseIcon from '@mui/icons-material/Warehouse';
+// import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
+// import RouteIcon from '@mui/icons-material/Route';
+// import WarehouseIcon from '@mui/icons-material/Warehouse';
 import { useNavigate } from 'react-router-dom';
 
 const FloatingSidebar = () => {
@@ -27,15 +27,15 @@ const FloatingSidebar = () => {
         onMouseLeave={handleMouseLeave}
       >
         <ul>
-          <li onClick={() => navigate('/admin')}>
+          <li onClick={() => navigate('/faculty')}>
             <HomeIcon className="icon" />
             <span>{isHovered || isOpen ? 'Dashbord' : ''}</span>
           </li>
-          <li onClick={() => navigate('/addcourses')}>
+          <li onClick={() => navigate('/faculty-response-courses')}>
             <MapIcon className="icon" />
-            <span>{isHovered || isOpen ? 'AddCourses' : ''}</span>
+            <span>{isHovered || isOpen ? 'Course alloted' : ''}</span>
           </li>
-          <li onClick={() => navigate('/buses')}>
+          {/* <li onClick={() => navigate('/buses')}>
             <DirectionsBusIcon className="icon" />
             <span>{isHovered || isOpen ? 'Progress' : ''}</span>
           </li>
@@ -46,7 +46,7 @@ const FloatingSidebar = () => {
           <li onClick={() => navigate('/depot')}>
             <WarehouseIcon className="icon" />
             <span>{isHovered || isOpen ? 'Admin' : ''}</span>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
